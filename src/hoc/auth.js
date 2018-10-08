@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {auth} from '../actions/index';
 export default function(ComposedClass,reload) {
+
     class AuthenticationCheck extends Component {
 
         state = {
@@ -12,7 +13,7 @@ export default function(ComposedClass,reload) {
 
         }
         componentWillReceiveProps(nextProps) {
-            console.log(nextProps)
+            console.log( "auth ",nextProps)
             this.setState({
                 loading:false
             })
@@ -28,7 +29,7 @@ export default function(ComposedClass,reload) {
                 return <div className="loader">Loading...</div>
             }
             return (
-                <ComposedClass {...this.props} user=""/>
+                <ComposedClass {...this.props} user={this.props.user}/>
             )
         }
     }

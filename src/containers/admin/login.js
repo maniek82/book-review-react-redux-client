@@ -24,6 +24,7 @@ class Login extends Component {
     }
 
     componentWillReceiveProps(nextProps){
+        console.log('will mount ', nextProps)
         if(nextProps.user.login.isAuth) {
             this.props.history.push("/user")
         }
