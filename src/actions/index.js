@@ -58,3 +58,21 @@ return {
          }
      }
  }
+
+ export function loginUser({email, password}) {
+     const request = axios.post(`${url}/api/login`,{email,password}).then(response=>response.data);
+
+     return {
+         type: 'USER_LOGIN',
+         payload: request
+     }
+ }
+
+ export function auth() {
+     const request = axios.get(`${url}/api/auth`).then(response=>response.data);
+
+     return {
+         type: 'USER_AUTH',
+         payload: request
+     }
+ }
